@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.dao.AccountMapper" >
+  <resultMap id="accountBaseResultMap" type="cn.itcast.entity.Account" >
+    <id column="acc_id" property="accId" jdbcType="INTEGER" />
+    <result column="acc_login" property="accLogin" jdbcType="VARCHAR" />
+    <result column="acc_name" property="accName" jdbcType="VARCHAR" />
+    <result column="acc_pass" property="accPass" jdbcType="VARCHAR" />
+  </resultMap>
+  <!-- 登录 -->
+  <select id="login" parameterType="account" resultMap="accountBaseResultMap">
+  	select acc_login,acc_pass from account where acc_login=#{accLogin} and acc_pass=#{accPass}
+  </select>
+  
+</mapper>
